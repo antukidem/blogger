@@ -46,7 +46,7 @@ function showlatestpostswiththumbs(json) {
         monthnames[11] = "Nov";
         monthnames[12] = "Dec";
         document.write('<li class="recent-posts-list">');
-        if (posts_date == true) document.write('<div class="post-date"><abbr class="timeago" title="'+postdate+ '">' + monthnames[parseInt(showmonth, 10)] + ' ' + showday + ' ' + showyear + '</abbr></div>');
+        if (posts_date == true) document.write('<abbr class="timeago" title="'+postdate+ '">' + monthnames[parseInt(showmonth, 10)] + ' ' + showday + ' ' + showyear + '</abbr>');
         if (showpoststhumbs == true)
         document.write('<a href="' + postsurl + '"><img class="recent-post-thumb" src="' + recenthumb + '"/></a>');
         document.write('<div class="recent-post-title"><a href="' + postsurl + '" target ="_top">' + posttitle + '</a></div>');
