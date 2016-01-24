@@ -26,9 +26,7 @@ function showlatestpostswiththumbs(json) {
             d = s.substr(b + 5, c - b - 5);
             if ((a != -1) && (b != -1) && (c != -1) && (d != "")) {
                 recenthumb = d;
-            } else recenthumb = 'http://2.bp.blogspot.com/-
-
-C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png';
+            } else recenthumb = 'http://2.bp.blogspot.com/-C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png';
         }
         var postdate = entry.published.$t;
         var showyear = postdate.substring(0, 4);
@@ -48,18 +46,10 @@ C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png';
         monthnames[11] = "Nov";
         monthnames[12] = "Dec";
         document.write('<li class="recent-posts-list">');
-        if (posts_date == true) document.write('<div class="post-date"><abbr class="timeago" 
-
-title="'+posts_date+ '">' + monthnames[parseInt(showmonth, 10)] + ' ' + showday + ' ' + showyear + 
-
-'</abbr></div>');
+        if (posts_date == true) document.write('<div class="post-date"><abbr class="timeago" title="'+posts_date+ '">' + monthnames[parseInt(showmonth, 10)] + ' ' + showday + ' ' + showyear + '</abbr></div>');
         if (showpoststhumbs == true)
-            document.write('<a href="' + postsurl + '"><img class="recent-post-thumb" src="' + recenthumb + 
-
-'"/></a>');
-        document.write('<div class="recent-post-title"><a href="' + postsurl + '" target ="_top">' + posttitle 
-
-+ '</a></div>');
+        document.write('<a href="' + postsurl + '"><img class="recent-post-thumb" src="' + recenthumb + '"/></a>');
+        document.write('<div class="recent-post-title"><a href="' + postsurl + '" target ="_top">' + posttitle + '</a></div>');
         var posts_details = '';
         var flag = 0;
         document.write('<div class="recent-posts-details">');
@@ -75,9 +65,7 @@ title="'+posts_date+ '">' + monthnames[parseInt(showmonth, 10)] + ' ' + showday 
         }
         if (readmorelink == true) {
             if (flag == 1) posts_details = posts_details + ' | ';
-            posts_details = posts_details + '<a class="readmorelink" href="' + postsurl + '" class="url" 
-
-target ="_top">Read more</a>';
+            posts_details = posts_details + '<a class="readmorelink" href="' + postsurl + '" class="url" target ="_top">Read more</a>';
             flag = 1;;
         }
         document.write(posts_details);
