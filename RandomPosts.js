@@ -9,7 +9,7 @@ g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class=
 var f=function(w){
 var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
 for(var o=0;o<s.length;o++){
- console.log('E : '+s[o].media$thumbnail.url);
+ console.log('E : '+ s[o].media$thumbnail!=null? s[o].media$thumbnail.url:"");
 for(var n=0;n<s[o].link.length;n++){
   if(s[o].link[n].rel=="alternate"){
     q=s[o].link[n].href;
