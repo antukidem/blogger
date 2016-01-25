@@ -9,9 +9,14 @@ g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class=
 var f=function(w){
 var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
 for(var o=0;o<s.length;o++){
-for(var n=0;n<s[o].link.length;n++){if(s[o].link[n].rel=="alternate"){q=s[o].link[n].href;break}}
+ console.log('R: '+s[o].media$thumbnail.url);
+for(var n=0;n<s[o].link.length;n++){
+  if(s[o].link[n].rel=="alternate"){
+    q=s[o].link[n].href;
+    break
+  }
+}
 if("media$thumbnail" in s[o]){ 
-  console.log('R: '+s[o].media$thumbnail.url);
   var ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
   if(ind >-1) {
     u=s[o].media$thumbnail.url.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
