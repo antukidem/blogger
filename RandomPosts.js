@@ -16,7 +16,7 @@ var n = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticconten
 if(n >-1) {u=s[o].media$thumbnail.url.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');}
 else{u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");}
 }else{u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");}
-
+console.log(u);
 k=s[o].title.$t;
 at=k.replace("'","/'");
 at=at.replace('"','/"');
