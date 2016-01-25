@@ -15,7 +15,7 @@ if("media$thumbnail" in s[o]){
         alert('1'+ s[o].media$thumbnail.url+'<br/> 2' + u)
 }else{
 	u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
-	      alert('3'+ s[o].media$thumbnail.url+'<br/> 4' + u)
+	      alert('3' + u)
 }
 k=s[o].title.$t;
 r=s[o].published.$t.substring(0,10);m=s[o].author[0].name.$t;
