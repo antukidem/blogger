@@ -14,8 +14,7 @@ if("media$thumbnail" in s[o]){
 	u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
         alert('1'+ s[o].media$thumbnail.url+'<br/> 2' + u)
 }else{
-	u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
-	      alert('3' + u)
+	u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1") 
 }
 k=s[o].title.$t;
 r=s[o].published.$t.substring(0,10);m=s[o].author[0].name.$t;
