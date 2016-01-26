@@ -15,6 +15,7 @@ for(var n=0;n<s[o].link.length;n++){
     break
   }
 }
+var img="";
 if("media$thumbnail" in s[o]){ 
   var ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
   if(ind >-1) {
@@ -23,8 +24,7 @@ if("media$thumbnail" in s[o]){
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
 }  
-var img;
-if("contents" in s[o]){ 
+else if("contents" in s[o]){ 
   if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
   {
     img =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
