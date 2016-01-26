@@ -13,7 +13,8 @@ for(var n=0;n<s[o].link.length;n++){
     break
   }
 }
-var content= w.feed.entry[0].content.$t; 
+ var totalposts = json.feed.openSearch$totalResults.$t;
+var content= w.feed.entry[0].summary.$t; 
 var img="";
 if("media$thumbnail" in s[o]){ 
   var ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
@@ -23,10 +24,10 @@ if("media$thumbnail" in s[o]){
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
 }  
-else if("content" in s[o]){ 
-  if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
+else if("summary" in s[o]){ 
+  if (s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
   {
-    img =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+    img =  s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
   }
    var ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
    if(ind >-1) {
