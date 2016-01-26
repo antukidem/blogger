@@ -24,7 +24,7 @@ if("media$thumbnail" in s[o]){
   }
 }  
 var img;
-if("content" in s[o]){ 
+if("contents" in s[o]){ 
   if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
   {
     img =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
