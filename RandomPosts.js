@@ -9,7 +9,6 @@ g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class=
 var f=function(w){
 var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
 for(var o=0;o<s.length;o++){
- console.log('E : '+ s[o].media$thumbnail!=null? s[o].media$thumbnail.url:"");
 for(var n=0;n<s[o].link.length;n++){
   if(s[o].link[n].rel=="alternate"){
     q=s[o].link[n].href;
@@ -23,10 +22,15 @@ if("media$thumbnail" in s[o]){
   }else{
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
-}else
-{
+}else if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null) 
+{ 
+   u =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1]; 
+}
+else 
+{ 
   u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");
 }
+ console.log(u);
 
 k=s[o].title.$t;
 at=k.replace("'","/'");
