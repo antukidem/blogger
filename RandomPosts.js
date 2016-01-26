@@ -22,12 +22,20 @@ if("media$thumbnail" in s[o]){
   }else{
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
-}else if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null) 
-{ 
-   u =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1]; 
-}
-else 
-{ 
+}  
+var img;
+if("content" in s[o]){ 
+  if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
+  {
+    img =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+  }
+   var ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
+   if(ind >-1) {
+    u=img.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
+  }else{
+    u=img.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
+  }
+}else { 
   u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");
 }
  console.log(u);
