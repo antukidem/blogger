@@ -13,7 +13,7 @@ for(var n=0;n<s[o].link.length;n++){
     break
   }
 }
- var totalposts = json.feed.openSearch$totalResults.$t;
+ var totalposts = w.feed.openSearch$totalResults.$t;
 var content= w.feed.entry[0].summary.$t; 
 var img="";
 if("media$thumbnail" in s[o]){ 
