@@ -1,7 +1,5 @@
 function FeaturedPostSide(a){(
-function(e)
-{var 
-h={blogURL:"",MaxPost:4,idcontaint:"",ImageSize:100,interval:5000,autoplay:false,loadingClass:"loadingxx",pBlank:"http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.gif",MonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],tagName:false};
+function(e){var h= {blogURL:"",MaxPost:4,idcontaint:"",ImageSize:100,interval:5000,autoplay:false,loadingClass:"loadingxx",pBlank:"http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.gif",MonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],tagName:false};
 h=e.extend({},h,a);
 var g=e(h.idcontaint);
 var d=h.MaxPost*200;
@@ -15,6 +13,7 @@ for(var n=0;n<s[o].link.length;n++){
     break
   }
 }
+var content= w.feed.entry[0].content.$t; 
 var img="";
 if("media$thumbnail" in s[o]){ 
   var ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
@@ -24,7 +23,7 @@ if("media$thumbnail" in s[o]){
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
 }  
-else if("contents" in s[o]){ 
+else if("content" in s[o]){ 
   if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
   {
     img =  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
@@ -43,7 +42,7 @@ else if("contents" in s[o]){
 k=s[o].title.$t;
 at=k.replace("'","/'");
 at=at.replace('"','/"');
-r=s[o].published.$t.substring(0,10);m=s[o].author[0].name.$t;
+r=s[o].published.$t.substring(0,10);m='';//s[o].author[0].name.$t;
 x=r.substring(0,4);p=r.substring(5,7);
 t=r.substring(8,10);
 v=h.MonthNames[parseInt(p,10)-1];
