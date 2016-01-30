@@ -7,7 +7,7 @@ g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class=
 var f=function(w){
 var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
 for(var o=0;o<s.length;o++){
-for(var n=0;n<s[o].link.length;n++){
+for(var n=0;n<s[o].link.length;n++){ 
   if(s[o].link[n].rel=="alternate"){
     q=s[o].link[n].href;
     break
@@ -17,16 +17,36 @@ if (o==0)
 var totalposts = w.feed.openSearch$totalResults.$t;
 var content= w.feed.entry[0].summary.$t; 
 if("media$thumbnail" in s[o]){ 
-  var ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
+  var ind =-1; 
+  if(s[o].media$thumbnail.url!=null)
+    ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
   if(ind >-1) {
     u=s[o].media$thumbnail.url.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
   }else{
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
-}else { 
-  u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");
+}else if("summary" in s[o]){ 
+  if (s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
+  {
+   var firstImg=  s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+   var ind =-1;
+   if(firstImg != null)
+      ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
+   
+   if(ind >-1) {
+    u=firstImg.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
+   }else{
+    u=firstImg.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
+   }  
 }
- console.log(u);
+}else { 
+  try{
+    u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");
+  }catch(err){
+    console.log("ERR:*********"+ err.message); 
+  }
+} 
+console.log(u);
 
 k=s[o].title.$t;
 at=k.replace("'","/'");
