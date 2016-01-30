@@ -16,7 +16,9 @@ for(var n=0;n<s[o].link.length;n++){
 if (o==0) 
 var totalposts = w.feed.openSearch$totalResults.$t;
 var content= w.feed.entry[0].summary.$t; 
-if("media$thumbnail" in s[o]){ 
+
+  try{
+    if("media$thumbnail" in s[o]){ 
   var ind =-1; 
   if(s[o].media$thumbnail.url!=null)
     ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
@@ -40,13 +42,12 @@ if("media$thumbnail" in s[o]){
    }  
 }
 }else { 
-  try{
     u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");
+
+} 
   }catch(err){
     console.log("ERR:*********"+ err.message); 
-  }
-} 
-console.log(u);
+  }console.log(u);
 
 k=s[o].title.$t;
 at=k.replace("'","/'");
