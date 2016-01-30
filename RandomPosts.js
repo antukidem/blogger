@@ -16,7 +16,7 @@ function FeaturedPostSide(a){
           break
         }
       } 
-      if("media$thumbnail" in s[o]){ 
+      /*if("media$thumbnail" in s[o]){ 
         var ind =-1; 
         if(s[o].media$thumbnail.url!=null)
         ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
@@ -40,12 +40,12 @@ function FeaturedPostSide(a){
         }
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1"); 
-      }  
-      /*if("media$thumbnail" in s[o]){
+      }*/  
+      if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c")
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
-      }*/
+      }
       k=s[o].title.$t;
       r=s[o].published.$t.substring(0,10);
       m="";//s[o].author[0].name.$t; 
