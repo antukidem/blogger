@@ -23,21 +23,6 @@ if("media$thumbnail" in s[o]){
   }else{
     u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
   }
-}  
-else if("summary" in s[o]){ 
-  if (s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
-  {
-   var firstImg=  s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
-   var ind =-1;
-   if(firstImg != null)
-      ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
-   
-   if(ind >-1) {
-    u=firstImg.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
-   }else{
-    u=firstImg.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
-   }  
-  }
 }else { 
   u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1");
 }
