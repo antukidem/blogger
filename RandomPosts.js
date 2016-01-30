@@ -33,9 +33,9 @@ else if("summary" in s[o]){
       ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
    
    if(ind >-1) {
-    u=img.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
+    u=firstImg.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
    }else{
-    u=img.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
+    u=firstImg.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
    }  
   }
 }else { 
