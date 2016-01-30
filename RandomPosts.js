@@ -16,7 +16,6 @@ for(var n=0;n<s[o].link.length;n++){
 if (o==0) 
 var totalposts = w.feed.openSearch$totalResults.$t;
 var content= w.feed.entry[0].summary.$t; 
-var img="";
 if("media$thumbnail" in s[o]){ 
   var ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
   if(ind >-1) {
@@ -28,8 +27,11 @@ if("media$thumbnail" in s[o]){
 else if("summary" in s[o]){ 
   if (s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
   {
-    img =  s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
-   var ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
+   var firstImg=  s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+   var ind =-1;
+   if(firstImg != null)
+      ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
+   
    if(ind >-1) {
     u=img.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
    }else{
