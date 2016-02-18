@@ -28,7 +28,7 @@ function showlatestpostswiththumbs(json) {
                  if(d.length>=1) {  
                     var n = d.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
                     if(n >-1) {   				
-                        recenthumb=d.replace('http://res.cloudinary.com/staticcontenthost/image/upload/', 'http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_210,h_180,c_fill/');   
+                        recenthumb=d.replace('http://res.cloudinary.com/staticcontenthost/image/upload/', 'http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_58,h_58,c_fill/');   
                     } //put code for picassa thumbnails
                     else 
                     recenthumb = d; 
