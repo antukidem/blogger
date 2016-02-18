@@ -25,7 +25,14 @@ function showlatestpostswiththumbs(json) {
             c = s.indexOf("\"", b + 5);
             d = s.substr(b + 5, c - b - 5);
             if ((a != -1) && (b != -1) && (c != -1) && (d != "")) {
-                recenthumb = d;
+                 if(d.length>=1) {  
+                    var n = d.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
+                    if(n >-1) {   				
+                        recenthumb=d.replace('http://res.cloudinary.com/staticcontenthost/image/upload/', 'http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_210,h_180,c_fill/');   
+                    } //put code for picassa thumbnails
+                    else 
+                    recenthumb = d; 
+                 } 
             } else recenthumb = 'http://2.bp.blogspot.com/-C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png';
         }
         var postdate = entry.published.$t;
