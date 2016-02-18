@@ -1,44 +1,4 @@
- if (!Array.prototype.indexOf)
-  { 
-       Array.prototype.indexOf = function(searchElement /*, fromIndex */)
 
-    { 
-
-    "use strict";
-
-    if (this === void 0 || this === null)
-      throw new TypeError();
-
-    var t = Object(this);
-    var len = t.length >>> 0;
-    if (len === 0)
-      return -1;
-
-    var n = 0;
-    if (arguments.length > 0)
-    {
-      n = Number(arguments[1]);
-      if (n !== n)
-        n = 0;
-      else if (n !== 0 && n !== (1 / 0) && n !== -(1 / 0))
-        n = (n > 0 || -1) * Math.floor(Math.abs(n));
-    }
-
-    if (n >= len)
-      return -1;
-
-    var k = n >= 0
-          ? n
-          : Math.max(len - Math.abs(n), 0);
-
-    for (; k < len; k++)
-    {
-      if (k in t && t[k] === searchElement)
-        return k;
-    }
-    return -1;
-  };
-}
 
 (function (){ var f="",g=" ",l='"',n="#",aa="%",p="%$1",ba="%2525",q="%s",r="&",t="(\\d*)(\\D*)",ca="*",da=",",ea="-$1",fa="-src",u=".",v="/",ga="//",w=":",ha=": ",ia="=",ja="?",ka="@",la="Assertion failed",ma="Expected number but got %s: %s.",na="Node cannot be null or undefined.",oa="[",pa="[object Array]",qa="[object Function]",ra="[object Window]",sa="\\u",ta="]",z="array",ua="backgroundColor",va="blogger-comment-from-post",wa="blogger-iframe-colorize",xa="blogspotRpcToken",ya="boolean",za="call",Aa="color",
 Ba="comment-editor",Ca="data-",Da="file",Ea="fontFamily",A="function",Fa="g",Ga="https://www.blogger.com/unvisited-link-",Ha="iframe",Ia="inherit",Ja="message",B="null",C="number",D="object",Ka="onmessage",La="rgb(0, 0, 0)",Ma="rgba(0, 0, 0, 0)",Na="serif",Oa="set-comment-editor-height",Pa="splice",Qa="string",Ra="transparent",Sa="{",Ta="}",E,F=this,Ua=function(a){var b=typeof a;if(b==D)if(a){if(a instanceof Array)return z;if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if(c==
