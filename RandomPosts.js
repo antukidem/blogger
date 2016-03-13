@@ -15,7 +15,7 @@ function FeaturedPostSide(a){
           q=s[o].link[n].href; 
           break
         }
-      } 
+      }  
       /*if("media$thumbnail" in s[o]){ 
         var ind =-1; 
         if(s[o].media$thumbnail.url!=null)
@@ -41,8 +41,13 @@ function FeaturedPostSide(a){
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1"); 
       }*/  
+     
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c")
+      }elseif(s[o].content.$t!=null){ 
+        var content = s[o].content.$t; 
+        var imagesrc = content.getElementsByTagName("img")[0].src;
+        alert(imagesrc);
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
       }
