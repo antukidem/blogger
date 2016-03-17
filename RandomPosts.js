@@ -41,7 +41,9 @@ function FeaturedPostSide(a){
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1"); 
       }*/  
+      if(s[o].content.$t!=null)
      alert("Con is >"+s[o].content.$t);
+           if(s[o].summary.$t!=null)
      alert("sum is >"+s[o].summary.$t);
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c")
