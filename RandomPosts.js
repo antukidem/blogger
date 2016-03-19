@@ -51,14 +51,18 @@ function FeaturedPostSide(a){
                 alert("sum is >"+s[o].summary.$t);*/
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
-         alert('Thumbnail '+ u);
       }else if(s[o].content!=null){
            var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g; 
            while ( m = rex.exec( s[o].content.$t ) ) { 
             urls.push( m[1] ); 
            }  
-           if(urls.length>0) 
-          alert('Cloudflare '+urls[0]); 
+           if(urls.length>0) { 
+             var n = urls[0].indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
+             if(n >-1) { 
+               u= urls[0].replace('http://res.cloudinary.com/staticcontenthost/image/upload/',
+       'http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
+             }
+           }
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
       }
