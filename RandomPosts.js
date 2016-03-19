@@ -43,26 +43,31 @@ function FeaturedPostSide(a){
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1"); 
       }*/  
-      /*if(s[o].content!=null)
-        if(s[o].content.$t!=null)
-          alert("Con is >"+s[o].content.$t);
-     if(s[o].summary!=null)
-           if(s[o].summary.$t!=null)
-                alert("sum is >"+s[o].summary.$t);*/
+   
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
       }else if(s[o].content!=null){
-           var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g; 
+           /*var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
            while ( m = rex.exec( s[o].content.$t ) ) { 
             urls.push( m[1] ); 
-           }  
+           } 
            if(urls.length>0) { 
              var n = urls[0].indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
              if(n >-1) { 
-               u= urls[0].replace('http://res.cloudinary.com/staticcontenthost/image/upload/',
-       'http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
-             }
-           }
+               u= urls[0].replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
+             } 
+           }*/
+           if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null){
+             var firstImg=  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+             var ind =-1;   
+             if(firstImg != null){ 
+               ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
+             } 
+             if(ind >-1) {
+               u=firstImg.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
+             }else{
+               u=firstImg.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
+             } 
       }
       else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
