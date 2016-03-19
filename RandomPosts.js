@@ -44,9 +44,9 @@ function FeaturedPostSide(a){
       if(s[o].content!=null)
       if(s[o].content.$t!=null)
      alert("Con is >"+s[o].content.$t);
-           if(s[o].summary!=null)
+          /* if(s[o].summary!=null)
            if(s[o].summary.$t!=null)
-     alert("sum is >"+s[o].summary.$t);
+     alert("sum is >"+s[o].summary.$t);*/
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") 
       }else if(s[o].content!=null){ 
@@ -68,7 +68,8 @@ function FeaturedPostSide(a){
     }
     e("ul",g).append(l).addClass(h.loadingClass)};
     var c=function(){e(h.idcontaint+" .nextx").click()};
-    var b=function(){e.get((h.blogURL===""?window.location.protocol+"//"+window.location.host:h.blogURL)+"/feeds/posts/summary"+(h.tagName===false?"":"/-/"+h.tagName)+"?max-results="+h.MaxPost+"&orderby=published&alt=json-in-script",f,"jsonp");
+    //var b=function(){e.get((h.blogURL===""?window.location.protocol+"//"+window.location.host:h.blogURL)+"/feeds/posts/summary"+(h.tagName===false?"":"/-/"+h.tagName)+"?max-results="+h.MaxPost+"&orderby=published&alt=json-in-script",f,"jsonp");
+    var b=function(){e.get((h.blogURL===""?window.location.protocol+"//"+window.location.host:h.blogURL)+"/feeds/posts/default"+(h.tagName===false?"":"/-/"+h.tagName)+"?max-results="+h.MaxPost+"&orderby=published&alt=json-in-script",f,"jsonp");
     setTimeout(function(){e(h.idcontaint+" .prevx").click(function(){
       e(h.idcontaint+" .sliderx li:first").before(e(h.idcontaint+" .sliderx li:last"));
       return false
