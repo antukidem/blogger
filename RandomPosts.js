@@ -50,7 +50,6 @@ function FeaturedPostSide(a){
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") 
       }else if(s[o].content!=null){  
-        if(s[o].content!=null)
           if(s[o].content.$t!=null)
             var imagesrc = s[o].content.$t.getElementsByTagName("img")[0].src;
         alert(imagesrc);
