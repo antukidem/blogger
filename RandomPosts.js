@@ -49,8 +49,9 @@ function FeaturedPostSide(a){
      alert("sum is >"+s[o].summary.$t);
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") 
-      }else if(s[o].content.$t!=null){ 
+      }else if(s[o].content!=null){ 
         var content = s[o].content.$t; 
+        if(content!=null)
         var imagesrc = content.getElementsByTagName("img")[0].src;
         alert(imagesrc);
       }else{
