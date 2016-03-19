@@ -43,23 +43,22 @@ function FeaturedPostSide(a){
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1"); 
       }*/  
-      if(s[o].content!=null)
+      /*if(s[o].content!=null)
         if(s[o].content.$t!=null)
           alert("Con is >"+s[o].content.$t);
-     /*if(s[o].summary!=null)
+     if(s[o].summary!=null)
            if(s[o].summary.$t!=null)
                 alert("sum is >"+s[o].summary.$t);*/
       if("media$thumbnail" in s[o]){
-        u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") 
-      }else if(s[o].content!=null){  
-          if(s[o].content.$t!=null){
+        u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
+         alert('Thumbnail '+ u);
+      }else if(s[o].content!=null){
            var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g; 
            while ( m = rex.exec( s[o].content.$t ) ) { 
             urls.push( m[1] ); 
            }  
            if(urls.length>0) 
-           alert(urls[0]);
-          }
+          alert('Cloudflare '+urls[0]); 
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
       }
