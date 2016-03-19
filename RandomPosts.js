@@ -58,7 +58,9 @@ function FeaturedPostSide(a){
              } 
            }*/
            if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null){
+             alert('image exists')
              var firstImg=  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+             alert(firstImg)
              var ind =-1;   
              if(firstImg != null){ 
                ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
