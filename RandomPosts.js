@@ -1,10 +1,28 @@
-function FeaturedPostSide(a){
+ function str_img_src($html) {
+        if (stripos($html, '<img') !== false) {
+            $imgsrc_regex = '#<\s*img [^\>]*src\s*=\s*(["\'])(.*?)\1#im';
+            preg_match($imgsrc_regex, $html, $matches);
+            unset($imgsrc_regex);
+            unset($html);
+            if (is_array($matches) && !empty($matches)) {
+                return $matches[2];
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    
+    function FeaturedPostSide(a){
   (function(e){
     var h={blogURL:"",MaxPost:4,idcontaint:"",ImageSize:100,interval:5000,autoplay:false,loadingClass:"loadingxx",pBlank:"http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.gif",MonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],tagName:false};
     h=e.extend({},h,a); 
     var g=e(h.idcontaint); 
     var d=h.MaxPost*200; 
     g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class="buttons"><a href="#" class="prevx">prev</a><a href="#" class="nextx">next</a></div>');
+   
+  
     var f=function(w){
     var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
     for(var o=0;o<s.length;o++)
@@ -50,9 +68,11 @@ function FeaturedPostSide(a){
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") 
       }else if(s[o].content!=null){  
-          if(s[o].content.$t!=null)
-            var imagesrc = s[o].content.$t.getElementsByTagName("img")[0].src;
-        alert(imagesrc);
+          if(s[o].content.$t!=null){
+             var imagesrc = str_img_src(s[o].content.$t);
+             if(imagesrc!=false)
+                 alert(imagesrc);
+          }
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
       }
