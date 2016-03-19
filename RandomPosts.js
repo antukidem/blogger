@@ -1,20 +1,4 @@
- function str_img_src($html) {
-        if (stripos($html, '<img') !== false) {
-            $imgsrc_regex = '#<\s*img [^\>]*src\s*=\s*(["\'])(.*?)\1#im';
-            preg_match($imgsrc_regex, $html, $matches);
-            unset($imgsrc_regex);
-            unset($html);
-            if (is_array($matches) && !empty($matches)) {
-                return $matches[2];
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    
-    function FeaturedPostSide(a){
+function FeaturedPostSide(a){
   (function(e){
     var h={blogURL:"",MaxPost:4,idcontaint:"",ImageSize:100,interval:5000,autoplay:false,loadingClass:"loadingxx",pBlank:"http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.gif",MonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],tagName:false};
     h=e.extend({},h,a); 
@@ -69,9 +53,12 @@
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") 
       }else if(s[o].content!=null){  
           if(s[o].content.$t!=null){
-             var imagesrc = str_img_src(s[o].content.$t);
-             if(imagesrc!=false)
-                 alert(imagesrc);
+           var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g; 
+           while ( m = rex.exec( s[o].content.$t ) ) { 
+            urls.push( m[1] ); 
+           }  
+           if(urls.length>0) 
+           alert(urls[0]);
           }
       }else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
