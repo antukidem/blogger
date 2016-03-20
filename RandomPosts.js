@@ -15,8 +15,7 @@ function FeaturedPostSide(a){
           q=s[o].link[n].href; 
           break
         }
-      }  
-      
+      }   
       u="";
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
@@ -24,10 +23,7 @@ function FeaturedPostSide(a){
         console.log(s[o].content.$t) ;
            var m,firstImgUrl="", urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
            m = rex.exec( s[o].content.$t ) ;
-            
-            if(m! =null)
-            alert(m[0]) ;
-               
+             
            /*alert(firstImgUrl) ;
             var firstImgUrl=urls[0];*/
            if(firstImgUrl.length>0) { 
