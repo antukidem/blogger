@@ -21,17 +21,24 @@ function FeaturedPostSide(a){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
       }else if(s[o].content!=null){ 
         //<img[^>]+src="?([^"\s]+)"?\s*\/>  //<img.*?\/>/g   //<img.*?src='(.*?)'/    //console.log(s[o].content.$t) ; 
-        var regex = /<img[^>]+src=["|']([^("'>)]+)["|']/; 
-        var firstImgUrl = regex.exec(s[o].content.$t)[1]; 
-        alert(firstImgUrl) ;   
-        if(firstImgUrl!=null)  
-        if(firstImgUrl.length>0) { 
-          u= firstImgUrl;  
-          var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
-          if(n >-1) { 
-            u= firstImgUrl.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
+        var re = /<img[^>]+src=["|']([^("'>)]+)["|']/,str = s[o].content.$t,m; 
+        if ((m = re.exec(str)) !== null) { 
+          if (m.index === re.lastIndex) { 
+            re.lastIndex++; 
           } 
+          // View your result using the m-variable. 
+          // eg m[0] etc.  
         } 
+        if(m!=null)  
+          var firstImgUrl =m[1];  
+          alert(firstImgUrl) ;   
+          if(firstImgUrl.length>0) { 
+            u= firstImgUrl;  
+            var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
+            if(n >-1) { 
+              u= firstImgUrl.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
+            } 
+          } 
       }
       else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
