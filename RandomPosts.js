@@ -21,9 +21,10 @@ function FeaturedPostSide(a){
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
       }else if(s[o].content!=null){ 
+        console.log(s[o].content.$t) ;
            var m,firstImgUrl="", urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
            m = rex.exec( s[o].content.$t ) ;
-            alert(s[o].content.$t) ;
+            
             if(m! =null)
             alert(m[0]) ;
                
