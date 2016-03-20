@@ -5,7 +5,6 @@ function FeaturedPostSide(a){
     var g=e(h.idcontaint); 
     var d=h.MaxPost*200; 
     g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class="buttons"><a href="#" class="prevx">prev</a><a href="#" class="nextx">next</a></div>');
-    
     var f=function(w){
     var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
     for(var o=0;o<s.length;o++)
@@ -46,29 +45,18 @@ function FeaturedPostSide(a){
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
       }else if(s[o].content!=null){
-           /*var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
+           /**/ var m, firstImgUrl="", urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
            while ( m = rex.exec( s[o].content.$t ) ) { 
-            urls.push( m[1] ); 
+            firstImgUrl=m[1];
+            //urls.push( m[1] ); 
+            break;
            } 
-           if(urls.length>0) { 
-             var n = urls[0].indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
+           if(firstImgUrl.length>0) { 
+             var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
              if(n >-1) { 
-               u= urls[0].replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
+               u= firstImgUrl.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
              } 
-           }*/
-           if (s[o].content.$t.match("/src=(.+?[\.jpg|\.gif|\.png]")/) != null){
-             alert('image exists')
-             var firstImg=  s[o].content.$t.match("/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
-             alert(firstImg)
-             var ind =-1;   
-             if(firstImg != null){ 
-               ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
-             } 
-             if(ind >-1) {
-               u=firstImg.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
-             }else{
-               u=firstImg.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
-             } 
+           } 
       }
       else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
