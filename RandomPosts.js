@@ -23,10 +23,10 @@ function FeaturedPostSide(a){
       }else if(s[o].content!=null){ 
            var m,firstImgUrl="", urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
            m = rex.exec( s[o].content.$t ) 
-            alert('start') ;
+            alert(s[o].content.$t) ;
+            if(m! =null)
             alert(m[0]) ;
-            alert(m[1]) ;
-            alert(m[2]) ;  
+               
            /*alert(firstImgUrl) ;
             var firstImgUrl=urls[0];*/
            if(firstImgUrl.length>0) { 
