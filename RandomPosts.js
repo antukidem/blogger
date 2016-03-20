@@ -50,8 +50,8 @@ function FeaturedPostSide(a){
             firstImgUrl = m[1] ; 
             break;
            } 
-           alert(firstImgUrl) ;
-           //var firstImgUrl=urls[0];
+           /*alert(firstImgUrl) ;
+            var firstImgUrl=urls[0];*/
            if(firstImgUrl.length>0) { 
              var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
              if(n >-1) { 
