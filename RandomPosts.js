@@ -22,8 +22,9 @@ function FeaturedPostSide(a){
       }else if(s[o].content!=null){ 
         //<img[^>]+src="?([^"\s]+)"?\s*\/>
         //<img.*?\/>/g
+        //<img.*?src='(.*?)'/
         //console.log(s[o].content.$t) ; 
-             var regex = /<img.*?src='(.*?)'/;
+             var regex = <img[^>]+src=["|']([^("'>)]+)["|'];
              var firstImgUrl = regex.exec(s[o].content.$t)[1];
                
            console.log(firstImgUrl) ; 
