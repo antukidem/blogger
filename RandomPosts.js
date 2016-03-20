@@ -56,8 +56,10 @@ function FeaturedPostSide(a){
              var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
              if(n >-1) { 
                u= firstImgUrl.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
-             } 
-           } 
+             }else{
+              u= firstImgUrl;
+             }  
+          }
       }
       else{
         u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")
