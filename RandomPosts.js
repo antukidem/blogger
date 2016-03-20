@@ -48,8 +48,8 @@ function FeaturedPostSide(a){
       v="";//h.MonthNames[parseInt(p,10)-1];
       /*l+='<li><a target="_blank" href="'+q+'"><div class="overlayx"></div><img class="random" src="'+u+'"/><h4>'+k+'</h4></a><div class="label_text"><span class="date"><span class="dd">'+t+'</span> <span class="dm">'+v+'</span> <span class="dy">'+x+'</span></span> <span class="autname">'+m+"</span></div></li>"*/
       l+='<li><a target="_blank" href="'+q+'"><div class="overlayx"></div><img class="random" src="'+u+'"/><h4>'+k+'</h4></a><div class="label_text"><span class="date">                   </span>'+"</div></li>";
-    alert(k);
-    alert(u); 
+    //alert(k);
+    //alert(u); 
     }
     e("ul",g).append(l).addClass(h.loadingClass)};
     var c=function(){e(h.idcontaint+" .nextx").click()};
