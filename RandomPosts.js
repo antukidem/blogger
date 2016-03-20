@@ -21,9 +21,9 @@ function FeaturedPostSide(a){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
       }else if(s[o].content!=null){ 
         //<img[^>]+src="?([^"\s]+)"?\s*\/>  //<img.*?\/>/g   //<img.*?src='(.*?)'/    //console.log(s[o].content.$t) ; 
-        var regex = <img[^>]+src=["|']([^("'>)]+)["|']; 
-        var firstImgUrl = regex.exec(s[o].content.$t)[0]; 
-        console.log(firstImgUrl) ;   
+        var regex = /<img[^>]+src=["|']([^("'>)]+)["|']/; 
+        var firstImgUrl = regex.exec(s[o].content.$t)[1]; 
+        alert(firstImgUrl) ;   
         if(firstImgUrl!=null)  
         if(firstImgUrl.length>0) { 
           u= firstImgUrl;  
