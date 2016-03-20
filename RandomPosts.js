@@ -45,12 +45,13 @@ function FeaturedPostSide(a){
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
       }else if(s[o].content!=null){
-           /**/ var m, firstImgUrl="", urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
+           /**/ var m, urls = [], rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;  
            while ( m = rex.exec( s[o].content.$t ) ) { 
-            firstImgUrl=m[1];
-            //urls.push( m[1] ); 
+            urls.push( m[1] ); 
             break;
            } 
+           alert(urls[0]):
+           var firstImgUrl=urls[0];
            if(firstImgUrl.length>0) { 
              var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
              if(n >-1) { 
