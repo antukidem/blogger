@@ -5,8 +5,7 @@ function FeaturedPostSide(a){
     var g=e(h.idcontaint); 
     var d=h.MaxPost*200; 
     g.html('<div class="sliderx"><ul class="drdsr-feat-posts"></ul></div><div class="buttons"><a href="#" class="prevx">prev</a><a href="#" class="nextx">next</a></div>');
-   
-  
+    
     var f=function(w){
     var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;
     for(var o=0;o<s.length;o++)
@@ -57,9 +56,9 @@ function FeaturedPostSide(a){
                u= urls[0].replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
              } 
            }*/
-           if (s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null){
+           if (s[o].content.$t.match("/src=(.+?[\.jpg|\.gif|\.png]")/) != null){
              alert('image exists')
-             var firstImg=  s[o].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
+             var firstImg=  s[o].content.$t.match("/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
              alert(firstImg)
              var ind =-1;   
              if(firstImg != null){ 
