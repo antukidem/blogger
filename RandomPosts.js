@@ -16,31 +16,7 @@ function FeaturedPostSide(a){
           break
         }
       }  
-      /*if("media$thumbnail" in s[o]){ 
-        var ind =-1; 
-        if(s[o].media$thumbnail.url!=null)
-        ind = s[o].media$thumbnail.url.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
-        if(ind >-1) {
-          u=s[o].media$thumbnail.url.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
-        }else{
-          u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
-        }
-      }else if("summary" in s[o]){ 
-        if (s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null){
-          var firstImg=  s[o].summary.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
-          var ind =-1;  
-          if(firstImg != null){
-            ind =img.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/"); 
-          } 
-          if(ind >-1) { 
-            u=firstImg.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/w_210,h_180,c_fill/');
-          }else{
-            u=firstImg.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c");
-          }  
-        }
-      }else{
-        u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1"); 
-      }*/   
+      
       u="";
       if("media$thumbnail" in s[o]){
         u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c") ;
@@ -53,11 +29,10 @@ function FeaturedPostSide(a){
            /*alert(firstImgUrl) ;
             var firstImgUrl=urls[0];*/
            if(firstImgUrl.length>0) { 
+             u= firstImgUrl;
              var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");
              if(n >-1) { 
                u= firstImgUrl.replace('http://res.cloudinary.com/staticcontenthost/image/upload/','http://res.cloudinary.com/staticcontenthost/image/upload/c_scale,fl_lossy.splice,w_72,h_72,c_fill/');
-             }else{
-              u= firstImgUrl;
              }  
           }
       }
@@ -72,6 +47,8 @@ function FeaturedPostSide(a){
       v="";//h.MonthNames[parseInt(p,10)-1];
       /*l+='<li><a target="_blank" href="'+q+'"><div class="overlayx"></div><img class="random" src="'+u+'"/><h4>'+k+'</h4></a><div class="label_text"><span class="date"><span class="dd">'+t+'</span> <span class="dm">'+v+'</span> <span class="dy">'+x+'</span></span> <span class="autname">'+m+"</span></div></li>"*/
       l+='<li><a target="_blank" href="'+q+'"><div class="overlayx"></div><img class="random" src="'+u+'"/><h4>'+k+'</h4></a><div class="label_text"><span class="date">                   </span>'+"</div></li>";
+    alert(k);
+    alert(u); 
     }
     e("ul",g).append(l).addClass(h.loadingClass)};
     var c=function(){e(h.idcontaint+" .nextx").click()};
