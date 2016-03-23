@@ -27,8 +27,8 @@ function FeaturedPostSide(a){
           }   
         } 
         if(m!=null)  
-          var firstImgUrl =m[1];  
-          console.log(firstImgUrl) ;   
+          var firstImgUrl =m[1];     
+          if(firstImgUrl.!=null)
           if(firstImgUrl.length>0) { 
             var n = firstImgUrl.indexOf("http://res.cloudinary.com/staticcontenthost/image/upload/");  
             if(n >-1) { 
